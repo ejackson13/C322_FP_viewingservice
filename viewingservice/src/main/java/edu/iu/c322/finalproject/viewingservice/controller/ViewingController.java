@@ -1,5 +1,6 @@
 package edu.iu.c322.finalproject.viewingservice.controller;
 
+import edu.iu.c322.finalproject.viewingservice.model.ItemIterator;
 import edu.iu.c322.finalproject.viewingservice.model.SellerItem;
 import edu.iu.c322.finalproject.viewingservice.repository.SellerItemRepository;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +25,11 @@ public class ViewingController {
     @GetMapping()
     public List<SellerItem> getAllAvailable() {
         List<SellerItem> allItems = repository.findAll();
+        ItemIterator iter = new ItemIterator(allItems);
         List<SellerItem> availableItems = new ArrayList<>();
-        System.out.println("ALL");
-        for(SellerItem i:allItems) {
+
+        while(iter.hasNext()) {
+            SellerItem i = (SellerItem)iter.next();
             if(i.getInventory() > 0) {
                 //i.setPrice(Math.round(i.getPrice() * 100.0)/100.0); // round to two decimal places
                 availableItems.add(i);
@@ -46,7 +49,7 @@ public class ViewingController {
         List<SellerItem> availableItems = new ArrayList<>();
         System.out.println(name);
         for(SellerItem i:allItems) {
-            if(i.getInventory() > 0 && (i.getName().contains(name) || name.equals("NONE"))) {
+            if(i.getInventory() > 0 && (i.getName().toLowerCase().contains(name.toLowerCase()) || name.equals("NONE"))) {
                 //i.setPrice(Math.round(i.getPrice() * 100.0)/100.0); // round to two decimal places
                 availableItems.add(i);
             }
