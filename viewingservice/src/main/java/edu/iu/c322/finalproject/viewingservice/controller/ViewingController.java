@@ -2,16 +2,14 @@ package edu.iu.c322.finalproject.viewingservice.controller;
 
 import edu.iu.c322.finalproject.viewingservice.model.SellerItem;
 import edu.iu.c322.finalproject.viewingservice.repository.SellerItemRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping
 public class ViewingController {
 
     private SellerItemRepository repository;
@@ -21,14 +19,16 @@ public class ViewingController {
     }
 
 
-    // return all available items (inventory 0 excluded)
-    @GetMapping
-    public List<SellerItem> getAllAvailableItems() {
+    // return all available items
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping()
+    public List<SellerItem> getAllAvailable() {
         List<SellerItem> allItems = repository.findAll();
         List<SellerItem> availableItems = new ArrayList<>();
-
+        System.out.println("ALL");
         for(SellerItem i:allItems) {
             if(i.getInventory() > 0) {
+                //i.setPrice(Math.round(i.getPrice() * 100.0)/100.0); // round to two decimal places
                 availableItems.add(i);
             }
         }
@@ -36,14 +36,18 @@ public class ViewingController {
         return availableItems;
     }
 
+
+
     // return all available items containing the given name
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{name}")
-    public List<SellerItem> getAllAvailableItemsByName(@PathVariable String name) {
+    public List<SellerItem> getAllAvailableByName(@PathVariable String name) {
         List<SellerItem> allItems = repository.findAll();
         List<SellerItem> availableItems = new ArrayList<>();
-
+        System.out.println(name);
         for(SellerItem i:allItems) {
-            if(i.getInventory() > 0 && i.getName().contains(name)) {
+            if(i.getInventory() > 0 && (i.getName().contains(name) || name.equals("NONE"))) {
+                //i.setPrice(Math.round(i.getPrice() * 100.0)/100.0); // round to two decimal places
                 availableItems.add(i);
             }
         }
@@ -53,7 +57,8 @@ public class ViewingController {
 
 
     // return item with given id
-    @GetMapping("/{itemId}")
+    @CrossOrigin()
+    @GetMapping("/item/{itemId}")
     public SellerItem getItemById(@PathVariable int itemId) {
         Optional<SellerItem> opt = repository.findById(itemId);
 
@@ -61,6 +66,9 @@ public class ViewingController {
             throw new IllegalStateException("The item you are looking for does not exist. Please try a different item.");
         }
 
-        return opt.get();
+        SellerItem item = opt.get();
+        //item.setPrice(Math.round(item.getPrice() * 100.0)/100.0); // round to two decimal places
+        return item;
     }
+
 }

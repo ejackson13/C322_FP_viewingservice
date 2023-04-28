@@ -9,12 +9,10 @@ public class SellerItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sellerItemId;
 
-    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
-    private Seller Seller;
+    @JoinColumn(name="seller_id")
+    private Seller seller;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private FeedbackItem itemFeedback;
 
     private String name;
     private int inventory;
@@ -32,19 +30,11 @@ public class SellerItem {
     }
 
     public edu.iu.c322.finalproject.viewingservice.model.Seller getSeller() {
-        return Seller;
+        return seller;
     }
 
     public void setSeller(edu.iu.c322.finalproject.viewingservice.model.Seller seller) {
-        Seller = seller;
-    }
-
-    public FeedbackItem getItemFeedback() {
-        return itemFeedback;
-    }
-
-    public void setItemFeedback(FeedbackItem itemFeedback) {
-        this.itemFeedback = itemFeedback;
+        this.seller = seller;
     }
 
     public String getName() {

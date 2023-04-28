@@ -1,15 +1,12 @@
 package edu.iu.c322.finalproject.viewingservice.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class SellerShipping {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int sellerShippingId;
+    private int id;
 
     private String street;
 
@@ -17,16 +14,16 @@ public class SellerShipping {
 
     private String state;
 
-    private int zipCode;
+    private int postalCode;
 
 
 
     public int getSellerShippingId() {
-        return sellerShippingId;
+        return id;
     }
 
     public void setSellerShippingId(int sellerShippingId) {
-        this.sellerShippingId = sellerShippingId;
+        this.id = sellerShippingId;
     }
 
     public String getStreet() {
@@ -54,10 +51,10 @@ public class SellerShipping {
     }
 
     public int getZipCode() {
-        return zipCode;
+        return postalCode;
     }
 
     public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+        this.postalCode = zipCode;
     }
 }

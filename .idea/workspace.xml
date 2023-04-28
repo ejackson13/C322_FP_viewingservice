@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fe2b197-200d-4305-a9f4-cea680ad966e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/viewingservice/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/viewingservice/src/main/resources/application-neon.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/viewingservice/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewingservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/viewingservice/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="0fe2b197-200d-4305-a9f4-cea680ad966e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,15 +18,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/sport/Desktop/programming stuffs/C322 Final Project/c322_fp_viewingservice/viewingservice",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sport/Desktop/programming stuffs/C322 Final Project/c322_fp_viewingservice/viewingservice&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sport\Desktop\programming stuffs\C322 Final Project\c322_fp_viewingservice\viewingservice\src\main\resources" />
@@ -44,12 +39,11 @@
       <option name="appServicePlanResourceGroup" />
       <option name="appSettingsKey" value="c36cfe3b-08a0-4c43-8e14-c80ca4377b1d" />
       <option name="artifact" />
-      <option name="autoPort" value="true" />
       <option name="debugOptions" />
       <option name="deployment" />
       <option name="deploymentStagingDirectoryPath" />
       <option name="funcPath" />
-      <option name="funcPort" value="0" />
+      <option name="functionHostArguments" />
       <option name="hostJsonPath" />
       <option name="insightsName" />
       <option name="instrumentationKey" />
@@ -79,6 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681847161366</updated>
       <workItem from="1681847162114" duration="191000" />
+      <workItem from="1682441582698" duration="74000" />
     </task>
     <servers />
   </component>

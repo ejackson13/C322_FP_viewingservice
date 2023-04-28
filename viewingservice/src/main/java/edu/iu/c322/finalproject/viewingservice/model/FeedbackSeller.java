@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Entity
 public class FeedbackSeller {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int feedbackSellerId;
 
     private int sumOfSellerScores = 0; // sum of all feedback scores (0-5)

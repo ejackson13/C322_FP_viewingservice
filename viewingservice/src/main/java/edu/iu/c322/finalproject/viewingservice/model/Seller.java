@@ -10,22 +10,30 @@ public class Seller {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sellerId;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<SellerItem> sellerItems;
-
     private String venmoId;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sellerShipping_id")
     private SellerShipping sellerShipping;
 
     private String sellerName;
     private String sellerEmail;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private FeedbackSeller sellerFeedback;
+    @JoinColumn(name = "feedbackSeller_id")
+    private FeedbackSeller feedbackSeller;
 
 
 
+
+
+    public FeedbackSeller getFeedbackSeller() {
+        return feedbackSeller;
+    }
+
+    public void setFeedbackSeller(FeedbackSeller feedbackSeller) {
+        this.feedbackSeller = feedbackSeller;
+    }
 
     public int getSellerId() {
         return sellerId;
@@ -35,6 +43,7 @@ public class Seller {
         this.sellerId = sellerId;
     }
 
+    /*
     public List<SellerItem> getSellerItems() {
         return sellerItems;
     }
@@ -42,6 +51,7 @@ public class Seller {
     public void setSellerItems(List<SellerItem> sellerItems) {
         this.sellerItems = sellerItems;
     }
+    */
 
     public String getVenmoId() {
         return venmoId;
