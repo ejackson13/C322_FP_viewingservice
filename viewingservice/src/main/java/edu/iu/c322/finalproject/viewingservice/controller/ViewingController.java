@@ -21,7 +21,7 @@ public class ViewingController {
 
 
     // return all available items
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin()
     @GetMapping()
     public List<SellerItem> getAllAvailable() {
         List<SellerItem> allItems = repository.findAll();
@@ -42,7 +42,7 @@ public class ViewingController {
 
 
     // return all available items containing the given name
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin()
     @GetMapping("/{name}")
     public List<SellerItem> getAllAvailableByName(@PathVariable String name) {
         List<SellerItem> allItems = repository.findAll();
